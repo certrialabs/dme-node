@@ -6,7 +6,7 @@
   "dependencies": {
     "bluebird": "3.0.5",
     "lodash": "4.17.21",
-    "request": "2.68.0"
+    "request": "2.88.0"
   },
   "devDependencies": {
     "chai-subset": "1.1.0",
