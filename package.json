@@ -5,13 +5,13 @@
   "main": "lib/dnsmadeeasy.js",
   "dependencies": {
     "bluebird": "3.0.5",
-    "lodash": "3.10.1",
-    "request": "2.67.0"
+    "lodash": "4.17.21",
+    "request": "2.68.0"
   },
   "devDependencies": {
     "chai-subset": "1.1.0",
     "co-mocha": "1.1.2",
-    "eslint": "1.10.2",
+    "eslint": "^3.10.1",
     "istanbul": "0.4.1",
     "mocha": "2.3.4",
     "nock": "3.3.2",
