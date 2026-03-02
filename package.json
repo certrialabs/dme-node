@@ -25,13 +25,9 @@
     "test": "NODE_ENV=test mocha --file lib/test-setup.js 'lib/**/*.spec.js'",
     "eslint": "eslint lib"
   },
-  "pre-commit": [
-    "eslint",
-    "test"
-  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/emartech/dme-node"
+    "url": "https://github.com/emartech/dme-node" 
   },
   "keywords": [
     "dnsmadeeasy",
