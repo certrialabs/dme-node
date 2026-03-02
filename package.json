@@ -1,36 +1,33 @@
 {
   "name": "dme-sdk",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "This module allows one to connect to DNSMadeEasy's APIs (V2.0)",
   "main": "lib/dnsmadeeasy.js",
   "dependencies": {
-    "bluebird": "3.0.5",
-    "lodash": "4.17.21",
-    "request": "2.88.0"
+    "bluebird": "^3.7.2",
+    "lodash": "^4.17.21",
+    "request": "^2.88.0"
   },
   "devDependencies": {
-    "chai-subset": "1.1.0",
-    "co-mocha": "1.1.2",
-    "eslint": "^8.31.0",
-    "istanbul": "0.4.1",
-    "mocha": "^10.2.0",
-    "nock": "^13.2.9",
-    "pre-commit": "1.1.2",
-    "sinon": "1.17.2",
-    "sinon-chai": "2.8.0",
-    "validate-commit-message": "3.0.1",
-    "winston": "2.1.1"
+    "chai": "^4.5.0",
+    "chai-subset": "^1.6.0",
+    "eslint": "^8.57.0",
+    "mocha": "^10.4.0",
+    "nock": "^13.5.0",
+    "nyc": "^15.1.0",
+    "pre-commit": "^1.2.2",
+    "sinon": "^17.0.1",
+    "sinon-chai": "^3.7.0",
+    "winston": "^3.11.0"
   },
   "scripts": {
-    "coverage": "NODE_ENV=test istanbul cover _mocha -- --require co-mocha $(find lib -name \"*.spec.js\"); open coverage/lcov-report/index.html",
-    "test": "NODE_ENV=test mocha --require co-mocha $(find lib -name \"*.spec.js\")",
-    "eslint": "eslint lib",
-    "validate-commit-msg": "validate-commit-msg"
+    "coverage": "NODE_ENV=test nyc mocha --file lib/test-setup.js 'lib/**/*.spec.js'",
+    "test": "NODE_ENV=test mocha --file lib/test-setup.js 'lib/**/*.spec.js'",
+    "eslint": "eslint lib"
   },
   "pre-commit": [
     "eslint",
-    "test",
-    "validate-commit-msg"
+    "test"
   ],
   "repository": {
     "type": "git",

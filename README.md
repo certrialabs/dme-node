@@ -73,3 +73,38 @@ usage.getUsage()
 #### Usage
 
 * `getUsage()`
+
+### Development & testing
+
+#### Test stack
+
+Tests use **Mocha**, **Chai**, **Sinon**, and **nock**. Async tests use native **async/await** (no co-mocha).
+
+- **Mocha** – test runner
+- **Chai** – assertions (`expect`)
+- **Sinon** – stubs/mocks (via `this.sandbox` in each test)
+- **nock** – HTTP mocking
+- Global hooks and Chai plugins are loaded from `lib/test-setup.js` (run with Mocha’s `--file` so `before` / `beforeEach` / `afterEach` are available).
+
+#### How to run tests
+
+```bash
+npm test
+```
+
+Runs all specs under `lib/**/*.spec.js` with the setup file loaded first.
+
+#### How to run coverage
+
+```bash
+npm run coverage
+```
+
+Uses **nyc** (Istanbul) to report coverage for the same test set.
+
+#### What changed from the old setup
+
+- **Removed co-mocha** – Tests that used generator functions (`function*`, `yield`) were converted to `async function()` and `await`.
+- **Modern Sinon** – Uses `sinon.createSandbox()` and `stub(...).callsFake(fn)` instead of the removed `stub(obj, 'meth', fn)` form.
+- **Setup file** – Test setup lives in `lib/test-setup.js` and is loaded with Mocha’s `--file` (not `--require`) so Mocha globals are defined.
+- **Coverage** – Replaced **istanbul** with **nyc** (maintained fork).
